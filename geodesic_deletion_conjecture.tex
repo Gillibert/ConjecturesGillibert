@@ -1,0 +1,74 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+
+\newtheorem{conjecture}{Conjecture}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+
+\title{The Geodesic Deletion Conjecture}
+\author{Luc Gillibert, GPT 6 Astra}
+\date{17/11/2026}
+
+\begin{document}
+\maketitle
+\vspace{-2em}
+
+All graphs in this note are finite, simple, and undirected. A graph is
+\emph{vertex-transitive} if, for any two vertices, an automorphism maps
+one to the other. A \emph{geodesic} is a shortest path between its
+endpoints. We regard a graph consisting of a single vertex as connected.
+
+\begin{conjecture}[Geodesic Deletion]
+Let $G$ be a connected vertex-transitive graph with at least three
+vertices. For every geodesic $P$ in $G$, the graph
+\[
+  \boxed{G-V(P)\text{ is connected}.}
+\]
+\end{conjecture}
+
+Here $G-V(P)$ denotes the induced subgraph on
+$V(G)\setminus V(P)$: all vertices of $P$, including both endpoints,
+are deleted, together with their incident edges. Thus the conjecture
+asserts that \emph{every} shortest route can be removed without
+disconnecting the remaining vertices. A path with this property is
+called \emph{nonseparating}.
+
+\paragraph{Elementary examples.}
+For a cycle $C_n$ with $n\geq 3$, a geodesic occupies a consecutive arc
+of length at most $\lfloor n/2\rfloor$. Deleting its vertices leaves a
+nonempty path, possibly a single vertex. For a complete graph $K_n$
+with $n\geq 3$, a geodesic has at most two vertices, so its deletion
+leaves a nonempty complete graph.
+
+\paragraph{Edge-transitivity is insufficient.}
+The complete bipartite graph $K_{2,3}$ is edge-transitive. Write its
+parts as $\{a,b\}$ and $\{x,y,z\}$. The path $a,x,b$ is a geodesic,
+since $a$ and $b$ are nonadjacent and have distance two. Deleting its
+vertices leaves the two isolated vertices $y$ and $z$. Hence the
+vertex-transitivity hypothesis cannot simply be replaced by
+edge-transitivity.
+
+\paragraph{The shortest-path condition is essential.}
+In the cube $Q_3$, whose vertices are binary strings of length three
+and whose edges join strings differing in exactly one coordinate,
+consider the induced path
+\[
+  000,\ 001,\ 011,\ 111,\ 110.
+\]
+Its deletion leaves the isolated vertex $010$ and the separate edge
+$100\text{--}101$. This path has length four, whereas its endpoints
+have distance two. Thus even in a vertex-transitive graph, deleting
+an induced path need not leave a connected graph.
+
+\paragraph{Motivation.}
+The conjecture links a metric condition on a single path to a global
+connectivity property of its complement. Vertex-transitivity alone
+does not make all geodesics equivalent under automorphisms, so the
+universal quantifier over shortest paths is a substantive requirement.
+
+
+\end{document}

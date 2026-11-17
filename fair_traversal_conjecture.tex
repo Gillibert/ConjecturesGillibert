@@ -1,0 +1,70 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+
+\title{The Fair Traversal Conjecture}
+\author{Luc Gillibert, GPT 6 Astra}
+\date{17/11/2026}
+
+\begin{document}
+\maketitle
+\vspace{-2em}
+
+All graphs are finite, simple, and undirected. A graph is
+\emph{vertex-transitive} if its automorphism group acts transitively on
+its vertices. A \emph{Hamiltonian path} visits every vertex exactly
+once; the one-vertex path is allowed.
+
+\begin{conjecture}[Fair Traversal]
+Every connected vertex-transitive graph with at least two vertices admits
+a nonempty finite multiset of Hamiltonian paths in which every edge
+occurs equally often.
+\end{conjecture}
+
+More explicitly, for every such graph $G=(V,E)$ there exist positive
+integers $r,k$ and Hamiltonian paths $P_1,\ldots,P_r$, not necessarily
+distinct, such that
+\[
+  \bigl|\{i\in\{1,\ldots,r\}:e\in E(P_i)\}\bigr|=k
+  \qquad\text{for every }e\in E.
+\]
+Thus complete traversals can be chosen so that no edge is favored.
+Writing $n=|V|$ and $m=|E|$, counting edge occurrences gives
+$r(n-1)=km$. In particular, choosing an index uniformly from
+$\{1,\ldots,r\}$ uses each edge with probability $(n-1)/m$.
+
+\begin{conjecture}[Lov\'asz, Hamiltonian-path formulation]
+Every connected vertex-transitive graph has a Hamiltonian path.
+\end{conjecture}
+
+\begin{proposition}
+The Fair Traversal Conjecture implies Lov\'asz's conjecture.
+\end{proposition}
+
+\begin{proof}
+Assume the Fair Traversal Conjecture, and let $G$ be a connected
+vertex-transitive graph. If $G$ has one vertex, that vertex alone is a
+Hamiltonian path. Otherwise, the Fair Traversal Conjecture supplies a
+nonempty multiset $\{P_1,\ldots,P_r\}$ of Hamiltonian paths in $G$.
+Since $r\geq 1$, the path $P_1$ exists and is a Hamiltonian path in $G$.
+This proves Lov\'asz's conjecture.
+\end{proof}
+
+\begin{remark}
+The implication uses only the nonemptiness of the collection. The
+additional demand in Fair Traversal is equal edge usage. For example,
+on a cycle with $n\geq 3$ vertices, deleting each edge in turn produces
+$n$ Hamiltonian paths, and every edge belongs to exactly $n-1$ of them.
+\end{remark}
+
+\end{document}

@@ -1,0 +1,81 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+
+\title{The Equal Halves Conjecture\\[0.3em]
+  \large The case of connected Cayley graphs of even order}
+\author{Luc Gillibert, GPT 6 Astra}
+\date{17/11/2026}
+
+\begin{document}
+\maketitle
+\vspace{-2em}
+
+All graphs are finite, simple, and undirected. A graph is
+\emph{vertex-transitive} if its automorphism group acts transitively on
+its vertices. For $A\subseteq V(G)$, the induced subgraph $G[A]$ retains
+every edge of $G$ whose endpoints both lie in $A$. A single vertex is
+regarded as a connected graph.
+
+\begin{conjecture}[Equal Halves]
+Every connected vertex-transitive graph $G$ of even order admits a
+partition $V(G)=A\sqcup B$ into two nonempty sets such that $G[A]$ and
+$G[B]$ are connected and isomorphic.
+\end{conjecture}
+
+The two parts necessarily have equal size. The following lemma proves
+the conjectured conclusion whenever a suitable involution exists;
+vertex-transitivity is not needed for the lemma.
+
+\begin{lemma}
+Let $G$ be a nonempty connected graph admitting an automorphism $\tau$
+such that $\tau^2=\mathrm{id}$ and $\tau(v)\ne v$ for every vertex $v$.
+Then $V(G)=A\sqcup\tau(A)$ for some $A$ with $G[A]$ connected.
+Consequently, the two induced halves are connected and isomorphic.
+\end{lemma}
+
+\begin{proof}
+Choose a nonempty set $A$ of maximum cardinality subject to $G[A]$
+being connected and $A\cap\tau(A)=\varnothing$. Such a set exists,
+since any singleton satisfies these conditions.
+
+Suppose $U=A\cup\tau(A)$ is not all of $V(G)$. By connectivity, there
+is an edge $ux$ with $u\in U$ and $x\notin U$. The set $U$ is
+$\tau$-invariant, so, applying $\tau$ to this edge if necessary, we may
+assume $u\in A$ and still $x\notin U$. Both $x$ and $\tau(x)$ lie
+outside $U$, and they are distinct. Therefore
+\[
+  (A\cup\{x\})\cap\tau(A\cup\{x\})=\varnothing.
+\]
+The edge $ux$ also makes $G[A\cup\{x\}]$ connected, contradicting
+maximality. Hence $U=V(G)$. The restriction of $\tau$ is an
+isomorphism $G[A]\to G[\tau(A)]$, proving the claim.
+\end{proof}
+
+\begin{theorem}
+Every connected Cayley graph of even order admits a partition into
+two isomorphic connected induced subgraphs.
+\end{theorem}
+
+\begin{proof}
+Write $G=\operatorname{Cay}(H,S)$, where $H$ is a finite group of even
+order, $S=S^{-1}\subseteq H\setminus\{1\}$ generates $H$, and edges
+join $h$ to $hs$ for $h\in H$ and $s\in S$.
+By Cauchy's theorem, $H$ contains an element $t$ of order two.
+Define $\tau(h)=th$. Left multiplication preserves adjacency, since
+the edge $\{h,hs\}$ maps to $\{th,(th)s\}$. Thus $\tau$ is a graph
+automorphism. Moreover, $\tau^2(h)=t^2h=h$, and $\tau(h)=h$ would imply
+$t=1$, a contradiction. The lemma applies and gives the required
+partition.
+\end{proof}
+
+\end{document}
