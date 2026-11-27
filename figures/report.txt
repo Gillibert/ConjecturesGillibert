@@ -1,0 +1,65 @@
+== Fields
+  ok: GF(8) inside GF(64) has 8 elements
+  ok: x^3+x+1 has three roots in GF(8)
+  ok: alpha generates GF(8)*
+  ok: the roots of x^3+x+1 are exactly the nonzero trace-0 elements of GF(8)
+  ok: roots are alpha, alpha^2, alpha^4
+== Vertices: irreducible monic quadratics x^2 + a^i x + a^j
+  ok: there are 28 irreducible monic quadratics over GF(8)
+  ok: each has two conjugate roots z, z^8 in GF(64)\GF(8)
+  ok: irreducible <=> Tr(c/b^2) = 1 (all 28 satisfy it)
+  ok: exactly 28 pairs (b,c) with b != 0 and Tr(c/b^2) = 1
+  labels (i,j) mean x^2 + a^i x + a^j: (0,0) (0,3) (0,5) (0,6) (1,0) (1,1) (1,2) (1,5) (2,0) (2,2) (2,3) (2,4) (3,2) (3,4) (3,5) (3,6) (4,0) (4,1) (4,4) (4,6) (5,1) (5,2) (5,3) (5,6) (6,1) (6,3) (6,4) (6,5)
+== Resultant invariant
+  ok: Res(q,q') = (c+c')^2 + (b+b')(bc'+b'c) for all pairs
+  ok: Res(q,q')/(bb')^2 is in {alpha, alpha^2, alpha^4} for all q != q'
+  ok: each of the three graphs is 9-regular
+  ok: Gamma is undirected
+  ok: the Frobenius (b,c)->(b^2,c^2) permutes the three graphs cyclically
+== PGL(2,8) = PSL(2,8)
+  ok: the Moebius maps give 504 distinct permutations of the 28 vertices
+  ok: they are permutations
+  ok: every one preserves each of the three graphs (the cross-ratio is invariant)
+  ok: the action is transitive
+  ok: the stabilizer of a vertex has order 18
+  element orders (order:count): 1:1 2:63 3:56 7:216 9:168
+  ok: the stabilizer is dihedral of order 18 (6 elements of order 9, 9 involutions)
+  suborbit sizes: 1 + 9 + 9 + 9
+  ok: rank 4 with three suborbits of size 9
+  ok: the suborbits are exactly the three classes of Res/(bb')^2
+== Census graph 2659 (Kao's numbering of the Holt-Royle census)
+  ok: graph6 string matches witnesses.tsv
+  ok: 28 vertices
+  ok: 9-regular
+  ok: 126 edges
+  ok: connected, diameter 2
+  ok: census graph 2659 is isomorphic to Gamma
+  isomorphism census vertex -> quadratic: 0->(0,0) 1->(0,5) 2->(3,5) 3->(3,6) 4->(4,6) 5->(4,1) 6->(2,2) 7->(2,0) 8->(5,2) 9->(5,1) 10->(4,4) 11->(4,0) 12->(0,3) 13->(1,5) 14->(1,2) 15->(6,3) 16->(6,5) 17->(3,4) 18->(3,2) 19->(2,4) 20->(2,3) 21->(5,6) 22->(5,3) 23->(0,6) 24->(6,4) 25->(6,1) 26->(1,0) 27->(1,1)
+  ok: |Aut| = 504, so Aut(Gamma) is exactly PSL(2,8)
+  ok: complement of Gamma = Gamma_alpha^2 union Gamma_alpha^4
+  ok: census graph 24010 is isomorphic to the complement of Gamma
+== Involutions
+  ok: 63 involutions
+  ok: each involution fixes exactly 4 vertices
+  => no fixed-point-free involutive automorphism; Gamma is not a Cayley graph (a regular subgroup of order 28 would contain one)
+  ok: the 63 fixed 4-sets form a 2-(28,4,1) design (the Ree unital)
+  edges of Gamma inside a block: 2 edges:63 blocks
+== Invariants of Gamma
+  triangles per vertex: 9; total triangles 84
+  common neighbours of adjacent pairs (value:pairs): 2:126
+  common neighbours of non-adjacent pairs (value:pairs): 2:126 4:126
+  diameter 2, girth 3
+  clique number 3, independence number 7
+  spectrum: 9.000000^1, 2.603875^9, -0.109916^9, -3.493959^9
+  the three other eigenvalues are the roots of x^3 - (-1.000000)x^2 + (-9.000000)x - (1.000000)
+== Exhaustive check on census graph 2659: |A| = 14, vertex 0 in A
+  subsets 20058300, both halves connected 19818396, of those equal induced degree sequences 1235502, equal (degree, triangle) profiles 7560, isomorphic 0  [2.2 s]
+  ok: C(27,13) = 20,058,300 candidate sets
+  ok: no split into connected isomorphic halves
+  Kao's counts: both connected 19,818,396; equal degree sequences 1,235,502; isomorphic 0
+  without requiring connectivity: equal degree sequences 1235502, isomorphic 0
+== Drawings
+  ok: t g t = g^-1 (dihedral)
+  nine-fold view: best layout k=1 sigma=(1,1) swap=1, total edge length 98.260
+  ok: an element of order 7 has four orbits of size 7
+  seven-fold view: best layout assign=[0,1,3,2] k=2 sigma=3, total edge length 96.680

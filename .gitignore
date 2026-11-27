@@ -1,3 +1,5 @@
 build/*.aux
 build/*.log
 build/*.out
+verify/bin/
+verify/obj/
